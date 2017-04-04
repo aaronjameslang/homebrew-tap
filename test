@@ -4,7 +4,7 @@ set -eux
 find Formula -type f |
 while read -r formula
 do
-  brew audit --strict --online "$formula"
+  #brew audit --strict --online "$formula"
   brew install "$formula"
   brew test "$formula"
   brew remove "$formula"
