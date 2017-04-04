@@ -1,3 +1,0 @@
-find Formula -type f |
-  sed -E 's/^Formula\/(\w+).rb/\1/' |
-  xargs brew audit --strict --online
