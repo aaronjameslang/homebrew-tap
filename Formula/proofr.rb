@@ -16,8 +16,6 @@ class Proofr < Formula
 
   test do
     cd prefix.to_s
-    system "proofr test-messages/perfect.msg"
-    #system "sh -x ./test.sh" # Fails due to tput
-    #system "make"
+    system "#{bin}/proofr", "test-messages/perfect.msg"
   end
 end
