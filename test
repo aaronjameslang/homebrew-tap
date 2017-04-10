@@ -7,5 +7,7 @@ do
   #brew audit --strict --online "$formula"
   brew install "$formula"
   brew test "$formula"
+  formula="$(basename "$formula")"
+  formula="${formula:0:-3}"
   brew remove "$formula"
 done
