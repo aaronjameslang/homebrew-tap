@@ -1,0 +1,12 @@
+#! /bin/sh
+set -eux
+
+find ./Formula -type f |
+while read -r formula
+do
+  brew audit --strict --online "$formula"
+  brew install "$formula"
+  brew test "$formula"
+  formula="$(basename "$formula" .rb)"
+  brew remove "$formula"
+done

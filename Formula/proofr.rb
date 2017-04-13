@@ -10,7 +10,7 @@ class Proofr < Formula
 
   test do
     cd prefix.to_s
-    system "proofr test-messages/perfect.msg"
+    system "#{bin}/proofr", "test-messages/perfect.msg"
     system "make", "test"
   end
 end
