@@ -1,4 +1,4 @@
-rvm: system
+rvm: 2.3
 os:
   - linux
   - osx
