@@ -1,6 +1,16 @@
-rvm: 2.3
+addons:
+  apt:
+    sources:
+      - sourceline: deb http://archive.ubuntu.com/ubuntu xenial main
+    packages:
+      - ruby
+
+before_install:
+  - test "$TRAVIS_OS_NAME" != 'linux' || sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+  - test "$TRAVIS_OS_NAME" != 'linux' || export PATH="$PATH:$HOME/.linuxbrew/bin/"
+
 os:
   - linux
   - osx
-before_install: command -v brew >/dev/null 2>&1 || < /dev/null ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)" && PATH="$PATH:$HOME/.linuxbrew/bin"
+
 script: ./test
